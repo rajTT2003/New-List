@@ -1,0 +1,237 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>NewList</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+
+</head>
+<body>
+    <header>
+        <h1>NewList</h1>
+        <div class="searchContainer" >
+            <select id="categoryFilter" onchange="filterProducts()">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+    
+                <!-- Add more category options as needed -->
+            </select>
+            <input type="text" id="searchInput" placeholder="Search products..." oninput="filterProducts()">
+        </div>
+        <nav>
+           <!---    <i class="fa-solid fa-magnifying-glass"></i>    --> 
+            
+            <div class="mainContainer">
+                <i class="fa-solid fa-user"></i>
+                <div class="dropdownContainer">
+                    <button onclick="openSignup()">Sign Up</button>
+                    <button onclick="openLogin()">Login</button>
+                </div>
+            
+            </div>
+            <i class="fa-solid fa-cart-shopping"  onclick="openCart()"></i>
+            
+            <!-- Add this HTML snippet to include a search input box -->
+        </nav>
+    </header>
+    <main>
+        <section id="landingSection">
+            <div class="overlay"></div>
+            <div class="landingContainer">
+                <div class="textContainer">
+                    <p>STATIONERY & MORE</p>
+                </div>
+                <div class="todaysContainer">
+                    <div class="textContainer2">
+                        <h2>Today's Selections</h2>
+                        <!-- TO DO: CREATE A SLIDESHOW FOR THIS SECTION -->
+                        <div class="slideShowContainer">
+                            <div class="product1">
+                                <div class="product" data-product-id="1" data-product-name="Smartphone" data-product-price="299.99" data-category="Electronics">
+                                    <div class="imageContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                    <h3>Smartphone</h3>
+                                    <p>$299.99</p>
+                                    <p>Category: Electronics</p>
+                                    <button onclick="openProductDetails(1)">View Details</button>
+                                    <button onclick="addToCart(1)">Add to Cart</button>
+                                </div>   
+                            </div>
+                            <div class="product1">
+                                <div class="product" data-product-id="1" data-product-name="Smartphone" data-product-price="299.99" data-category="Electronics">
+                                    <div class="imageContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                    <h3>Smartphone</h3>
+                                    <p>$299.99</p>
+                                    <p>Category: Electronics</p>
+                                    <button onclick="openProductDetails(1)">View Details</button>
+                                    <button onclick="addToCart(1)">Add to Cart</button>
+                                </div>   
+                            </div>
+                            <div class="product1">
+                                <div class="product" data-product-id="1" data-product-name="Smartphone" data-product-price="299.99" data-category="Electronics">
+                                    <div class="imageContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                    <h3>Smartphone</h3>
+                                    <p>$299.99</p>
+                                    <p>Category: Electronics</p>
+                                    <button onclick="openProductDetails(1)">View Details</button>
+                                    <button onclick="addToCart(1)">Add to Cart</button>
+                                </div>   
+                            </div>
+                            <div class="product1">
+                                <div class="product" data-product-id="1" data-product-name="Smartphone" data-product-price="299.99" data-category="Electronics">
+                                    <div class="imageContainer">
+                                        <img src="" alt="">
+                                    </div>
+                                    <h3>Smartphone</h3>
+                                    <p>$299.99</p>
+                                    <p>Category: Electronics</p>
+                                    <button onclick="openProductDetails(1)">View Details</button>
+                                    <button onclick="addToCart(1)">Add to Cart</button>
+                                </div>   
+                            </div>
+                            <!-- Add more products as needed -->
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        <!-- Add a category filter dropdown -->
+        <div class="searchContainer" style="display: none;">
+            <input type="text" id="searchInput" placeholder="Search products..." oninput="filterProducts()">
+            <label for="categoryFilter">Category:</label>
+            <select id="categoryFilter" onchange="filterProducts()">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+    
+                <!-- Add more category options as needed -->
+            </select>
+        </div>
+        <section id="categoryContainer">
+            <h2>Categories</h2>
+            <div class="category-list-container">
+                <div class="category-list">
+                    <div class="category">
+                        <p>Stationery</p>
+                    </div>
+                    <div class="category">
+                        <p>Office Supplies</p>
+                    </div>
+                    <div class="category">
+                        <p>More Soon</p>
+                    </div>
+                    
+                </div>
+            </div>
+            
+
+            </div>
+        </section>
+        
+    
+        <section id="preview">
+            <h2>Products</h2>
+            <p id="notFoundMessage" style="display: none;">Item Not Found</p>
+            <div class="product-list">
+                <div class="product" data-product-id="1" data-product-name="Smartphone" data-product-price="299.99" data-category="Electronics">
+                    <div class="imageContainter">
+                        <img src="" alt="">
+                    </div>
+                    <h3>Smartphone</h3>
+                    <p>$299.99</p>
+                    <p>Category: Electronics</p>
+                    <button onclick="openProductDetails(1)">View Details</button>
+                    <button onclick="addToCart(1)">Add to Cart</button>
+                </div>
+                <div class="product" data-product-id="1" data-product-name="Smartphone" data-product-price="299.99" data-category="Electronics">
+                    <div class="imageContainter">
+                        <img src="" alt="">
+                    </div>
+                    <h3>Smartphone</h3>
+                    <p>$299.99</p>
+                    <p>Category: Electronics</p>
+                    <button onclick="openProductDetails(1)">View Details</button>
+                    <button onclick="addToCart(1)">Add to Cart</button>
+                </div>
+            </div>
+            
+            
+            <!-- Add more product divs as needed -->
+        </section>
+    
+        <div class="modal" id="productModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeProductDetails()">&times;</span>
+                <h2 id="modalProductName">Product Details</h2>
+                <p id="modalProductPrice"></p>
+                <button onclick="addToCart(document.getElementById('modalProductId').value)">Add to Cart</button>
+            </div>
+        </div>
+        
+        <!-- Add a unique ID to the second product modal -->
+        <div class="modal" id="productModal2">
+            <div class="modal-content">
+                <span class="close" onclick="closeProductDetails()">&times;</span>
+                <h2 id="modalProductName2"></h2>
+                <p id="modalProductPrice2"></p>
+                <button onclick="addToCart(document.getElementById('modalProductId').value)">Add to Cart</button>
+            </div>
+        </div>
+    
+        <div class="modal" id="cartModal">
+            <div class="modal-content">
+                <span class="close" onclick="closeCart()">&times;</span>
+                <h2>Shopping Cart</h2>
+                <ul id="cart-items"></ul>
+                <p id="total">Total: $0.00</p>
+                <button onclick="submitOrder()">Submit Order</button>
+            </div>
+        </div>
+    
+       <!-- Signup Form -->
+<div class="modal" id="signupModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeSignup()">&times;</span>
+        <h2>Sign Up</h2>
+        <form onsubmit="signup(event)">
+            <input type="text" id="signupFirstName" placeholder="First Name" required>
+            <input type="text" id="signupLastName" placeholder="Last Name" required>
+            <input type="email" id="signupEmail" placeholder="Email" required>
+            <input type="tel" id="signupTelephone" placeholder="Telephone" required>
+            <input type="password" id="signupPassword" placeholder="Password" required>
+            <button type="submit">Sign Up</button>
+        </form>
+    </div>
+</div>
+
+<!-- Login Form -->
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <span class="close" onclick="closeLogin()">&times;</span>
+        <h2>Log In</h2>
+        <form onsubmit="login(event)">
+            <input type="email" id="loginEmail" placeholder="Email" required>
+            <input type="password" id="loginPassword" placeholder="Password" required>
+            <button type="submit">Log In</button>
+        </form>
+    </div>
+</div>
+
+    
+
+    </main>
+    <footer>
+        <p>&copy;2024 NewList</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>NewList</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+    <header>
+        <h1>NewList</h1>
+        <div class="searchContainer">
+            <select id="categoryFilter" onchange="filterProducts()">
+                <option value="all">All</option>
+                <option value="electronics">Electronics</option>
+    
+                <!-- Add more category options as needed -->
+            </select>
+            <input type="text" id="searchInput" placeholder="Search products..." oninput="filterProducts()">
+        </div>
+        <nav>
+            <i class="fa-solid fa-cart-shopping"  onclick="openCart()"></i>
+            <div class="mainContainer">
+                <i class="fa-solid fa-user"></i>
+                <div class="dropdownContainer">
+                    <button onclick="openSignup()">Sign Up</button>
+                    <button onclick="openLogin()">Login</button>
+                </div>
+            
+            </div>
+            
+            <!-- Add this HTML snippet to include a search input box -->
+        </nav>
+    </header>
+   <main>
+
+   </main>
+    
+    <script src="script.js"></script>
+</body>
+</html>

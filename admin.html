@@ -1,0 +1,143 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="admin.css">
+    <title>NewList | Admin</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Bruno+Ace+SC&family=Roboto:wght@300&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" integrity="sha512-iecdLmaskl7CVkqkXNQ/ZH/XLlvWZOJyj7Yy7tcenmpD1ypASozpmT/E0iPtmFIB46ZmdtAc9eNBvH0H/ZpiBw==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+    
+</head>
+<body>
+    <header>
+        <h1>NewList</h1>
+        <ul>
+            <li onclick="loadContent('store')">Store</li>
+            <li>
+                <span>Orders</span>
+                <ul class="dropdown-menu">
+                    <li onclick="loadOrders('new')">New Orders</li>
+                    <li onclick="loadOrders('all')">All Orders</li>
+                    <li onclick="loadOrders('completed')">Completed Orders</li>
+                    <li onclick="loadOrders('outstanding')">Outstanding Orders</li>
+                </ul>
+            </li>
+            <li>
+                <span>Products</span>
+                <ul class="dropdown-menu">
+                    <li onclick="loadProducts()">View Products</li>
+                    <li onclick="loadAddProduct()">Add Product</li>
+                </ul>
+            </li>
+            
+            <li  onclick="loadCustomers()">Customers</li>
+            <li onclick="loadContent('financing')">Financing</li>
+        </ul>
+    </header>
+    <main id="adminMain">
+        <!-- Content will be dynamically loaded here -->
+        
+    </main>
+        <!-- Add the View Modal -->
+    <div id="viewProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('viewProductModal')">&times;</span>
+            <div id="productDetails"></div>
+        </div>
+    </div>
+        <!-- Add the Edit Modal -->
+    <div id="editProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editProductModal')">&times;</span>
+            <h2>Edit Product</h2>
+            <label for="editProductName">Name:</label>
+            <input type="text" id="editProductName">
+            <label for="editProductDescription">Description:</label>
+            <textarea id="editProductDescription"></textarea>
+            <label for="editProductPrice">Price:</label>
+            <input type="number" step="0.01" id="editProductPrice">
+            <button onclick="saveEdit()">Save</button>
+        </div>
+    </div>
+    <!-- Inside your header -->
+
+
+    <div id="addProductModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('addProductModal')">&times;</span>
+            <h2>Add Product</h2>
+            <label for="addProductName">Name:</label>
+            <input type="text" id="addProductName">
+    
+            <!-- Add input fields for variants -->
+            <div id="variantInputs">
+                <label for="addProductVariant">Variant:</label>
+                <input type="text" id="addProductVariant">
+                <label for="addProductVariantPrice">Price:</label>
+                <input type="number" step="0.01" id="addProductPrice">
+                <label for="addProductVariantType">Variant Type:</label>
+                <select id="addProductVariantType">
+                    <option value="pen">Pen</option>
+                    <option value="notebook">Notebook</option>
+                    <!-- Add more options as needed -->
+                </select>
+                <label for="addProductVariantPhoto">Variant Photo:</label>
+                <input type="file" id="addProductVariantPhoto">
+            </div>
+    
+            <!-- Your existing input fields -->
+    
+            <button onclick="addVariant()">Add Variant</button>
+    
+            <label for="addProductDescription">Description:</label>
+            <textarea id="addProductDescription"></textarea>
+            <button onclick="addProduct()">Add Product</button>
+        </div>
+    </div>
+    
+
+
+
+
+    <!-- Add the View Modal for Orders -->
+    <div id="viewOrderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('viewOrderModal')">&times;</span>
+            <div id="orderDetails"></div>
+        </div>
+    </div>
+
+    <!-- Add the Edit Modal for Orders -->
+    <div id="editOrderModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editOrderModal')">&times;</span>
+            <h2>Edit Order</h2>
+            <!-- Include input fields for editing order details -->
+            <button onclick="saveOrderEdit()">Save</button>
+        </div>
+    </div>
+
+        <!-- Add the View Customer Modal -->
+    <div id="viewCustomerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('viewCustomerModal')">&times;</span>
+            <div id="customerDetails"></div>
+        </div>
+    </div>
+
+    <!-- Add the Edit Customer Modal -->
+    <div id="editCustomerModal" class="modal">
+        <div class="modal-content">
+            <span class="close" onclick="closeModal('editCustomerModal')">&times;</span>
+            <h2>Edit Customer</h2>
+            <!-- Include input fields for editing customer details -->
+            <button onclick="saveCustomerEdit()">Save</button>
+        </div>
+    </div>
+
+    <script src="admin.js"></script>
+</body>
+</html>
